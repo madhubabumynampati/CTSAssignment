@@ -1,0 +1,13 @@
+<header>
+    <nav>
+        <ul>
+            <li><a [routerLink]="['/todos']" [routerLinkActive]="['active']">Todo List</a></li>
+            <li><a [routerLink]="['/directive']" [routerLinkActive]="['active']">Pipes / Directives</a></li>
+            <li><a [routerLink]="['/forms']" [routerLinkActive]="['active']">Forms Component</a></li>
+            <li><a [routerLink]="['/siblings']" [routerLinkActive]="['active']">Sibling Component</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>

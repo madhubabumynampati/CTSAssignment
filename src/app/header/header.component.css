@@ -1,0 +1,12 @@
+ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+li {
+    margin: 0 25px;
+}
+
+li a.active {
+    font-weight: bold;
+}

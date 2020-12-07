@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Emp Id</th>
+            <th> Emp Name</th>
+            <th>Mobile</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.id}}</td>
+            <td changeColor>{{emp.name}}</td>
+            <td>{{emp.mobile | phoneToUs}}</td>
+        </tr>
+    </tbody>
+</table>

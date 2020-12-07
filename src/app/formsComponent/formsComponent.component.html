@@ -1,0 +1,58 @@
+<div class="p-grid">
+    <div class="p-col">
+        <h2>Reactive Form</h2>
+        <form [formGroup]="empForm" (ngSubmit)="saveReactiveEmp()">
+            <span class="p-float-label">
+                
+                <input id="empId" name="empId" formControlName="id" type="text" pInputText> 
+                <label for="empId">Emp Id *</label>
+            <small class="text-danger" *ngIf="empForm.get('id').invalid && empForm.get('id').touched"> Employee ID required</small>
+
+            </span>
+            <span class="p-float-label">
+                <input id="name" formControlName="name" type="text" pInputText> 
+                <label for="name">Name *</label>
+                <small class="text-danger" *ngIf="empForm.get('name').invalid && empForm.get('name').touched"> Employee name required</small>    
+            </span>
+
+            <span class="p-float-label">
+                <input id="mobileNumber" formControlName="mobileNumber" type="number" pInputText> 
+                <label for="mobileNumber">Mobile Number *</label>
+                <small class="text-danger" *ngIf="empForm.get('mobileNumber')?.errors?.required && empForm.get('mobileNumber').touched"> Mobile number is required</small>
+            <small class="text-danger" *ngIf="empForm.get('mobileNumber')?.errors?.pattern && empForm.get('mobileNumber').touched"> Enter valid mobile number</small>
+            </span>
+
+            <br>
+            <button pButton type="submit" label="Save"></button>
+
+        </form>
+    </div>
+    <div class="p-col">
+        <h2>Template Driven Form</h2>
+        <form #empTemplateForm="ngForm" (ngSubmit)="saveTemplateeEmp(empTemplateForm.form)">
+            <span class="p-float-label">
+                
+                <input id="empId1" name="empId" [(ngModel)]="employee.id" #id="ngModel" required type="text" pInputText> 
+                <label for="empId1">Emp Id *</label>
+            <small class="text-danger" *ngIf="id.invalid && id.touched"> Employee ID required</small>
+
+            </span>
+            <span class="p-float-label">
+                <input id="name1" name="name" [(ngModel)]="employee.name" type="text" #name="ngModel" required pInputText> 
+                <label for="name1">Name *</label>
+                <small class="text-danger" *ngIf="name.invalid && name.touched"> Employee name required</small>    
+            </span>
+
+            <span class="p-float-label">
+                <input id="mobileNumber1" name="mobileNumber" [(ngModel)]="employee.mobileNumber" #mobileNumber="ngModel" type="number" required pattern="^[6-9]{1}[0-9]{9}$" pInputText> 
+                <label for="mobileNumber1">Mobile Number *</label>
+                <small class="text-danger" *ngIf="mobileNumber?.errors?.required && mobileNumber.touched"> Mobile number is required</small>
+            <small class="text-danger" *ngIf="mobileNumber?.errors?.pattern && mobileNumber.touched"> Enter valid mobile number</small>
+            </span>
+
+            <br>
+            <button pButton type="submit" label="Save"></button>
+
+        </form>
+    </div>
+</div>
